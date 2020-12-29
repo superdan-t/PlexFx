@@ -1,0 +1,11 @@
+PlexFx	KEYWORD1
+Effect	KEYWORD1
+Controller	KEYWORD1
+LinkedController	KEYWORD1
+
+run	KEYWORD2
+getEffect	KEYWORD2
+removeEffect	KEYWORD2
+addEffect	KEYWORD2
+update	KEYWORD2
+callback	KEYWORD2
