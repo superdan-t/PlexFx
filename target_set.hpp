@@ -17,6 +17,7 @@ public:
 	TargetSet& operator=(const TargetSet& other);
 	TargetSet& operator=(Set* ref);
 private:
+	void clean();
 	size_t* uses;
 	Set* ref;
 };
