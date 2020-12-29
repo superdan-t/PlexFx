@@ -31,7 +31,7 @@ void PlexFx::LinkedController::run() {
 	}
 }
 
-PlexFx::Effect& PlexFx::LinkedController::getEffect(PLEXFX_TYPE_FXID i) {
+PlexFx::Effect& PlexFx::LinkedController::getEffect(ID i) {
 	Node* e = head;
 	while (e) {
 		if (e->effect.id != i) {
@@ -41,7 +41,7 @@ PlexFx::Effect& PlexFx::LinkedController::getEffect(PLEXFX_TYPE_FXID i) {
 	return e->effect;
 }
 
-void PlexFx::LinkedController::removeEffect(PLEXFX_TYPE_FXID i) {
+void PlexFx::LinkedController::removeEffect(ID i) {
 	Node* e = head;
 	Node* p = nullptr;
 	while (e) {

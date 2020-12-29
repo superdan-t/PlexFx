@@ -1,8 +1,6 @@
 #pragma once
 
-#include "PlatformDefs.hpp"
-
-#define PLEXFX_TYPE_SET std::shared_ptr<PlexFx::Set>
+#include "definitions.hpp"
 
 namespace PlexFx {
 
@@ -11,23 +9,23 @@ class Set {
 public:
 	class Iterator {
 	public:
-		Iterator(Set& set, PLEXFX_TYPE_BOUND init);
+		Iterator(Set& set, Index init);
 		inline Iterator& operator++() { i += 1; return *this; }
 		inline Iterator operator++(int) { Iterator temp = *this; ++*this; return temp; }
-		inline bool operator==(PLEXFX_TYPE_BOUND other) { return i == other; }
-		inline bool operator!=(PLEXFX_TYPE_BOUND other) { return i != other; }
-		inline PLEXFX_TYPE_BOUND operator*() { return i; }
+		inline bool operator==(Index other) { return i == other; }
+		inline bool operator!=(Index other) { return i != other; }
+		inline Index operator*() { return i; }
 	private:
 		Set& set;
-		PLEXFX_TYPE_BOUND i;
+		Index i;
 	};
-	virtual PLEXFX_TYPE_BOUND at(PLEXFX_TYPE_BOUND) = 0;
-	virtual PLEXFX_TYPE_BOUND size() = 0;
+	virtual Index at(Index) = 0;
+	virtual Index size() = 0;
 
 	inline Iterator begin() { return Iterator(*this, 0); }
-	inline PLEXFX_TYPE_BOUND end() { return size(); }
+	inline Index end() { return size(); }
 
-	inline PLEXFX_TYPE_BOUND operator[](PLEXFX_TYPE_BOUND i) {
+	inline Index operator[](Index i) {
 		return at(i);
 	}
 
@@ -38,12 +36,12 @@ public:
 // Simple range from x to y as a set
 class Range : public Set {
 public:
-	Range(PLEXFX_TYPE_BOUND start, PLEXFX_TYPE_BOUND end);
-	PLEXFX_TYPE_BOUND at(PLEXFX_TYPE_BOUND) override;
-	PLEXFX_TYPE_BOUND size() override;
+	Range(Index start, Index end);
+	Index at(Index) override;
+	Index size() override;
 private:
-	PLEXFX_TYPE_BOUND start;
-	PLEXFX_TYPE_BOUND end;
+	Index start;
+	Index end;
 };
 
 }	//end namespace PlexFx

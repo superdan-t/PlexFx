@@ -1,7 +1,7 @@
 #pragma once
 
 #include <stdlib.h>
-#include "PlatformDefs.hpp"
+#include "definitions.hpp"
 #include "target_set.hpp"
 
 namespace PlexFx {
@@ -17,7 +17,7 @@ public:
 	// Specify which indices the effect should apply to
 	TargetSet targets;
 
-	PLEXFX_TYPE_FXID id;
+	ID id;
 
 	// Should be called at a regular interval
 	inline bool update() {

@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "PlatformDefs.hpp"
+#include "definitions.hpp"
 #include "effect.hpp"
 #include "controller.hpp"
 #include "set.hpp"

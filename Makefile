@@ -9,10 +9,10 @@ OBJS = \
 tester:	$(OBJS)
 	$(CXX) $(LDFLAGS) $(OBJS) -o tester
 
-controller.o: controller.cpp controller.hpp effect.hpp PlatformDefs.hpp
+controller.o: controller.cpp controller.hpp effect.hpp definitions.hpp
 	$(CXX) $(CFLAGS) -c $<
 
-set.o: set.cpp set.hpp PlatformDefs.hpp
+set.o: set.cpp set.hpp definitions.hpp
 	$(CXX) $(CFLAGS) -c $<
 
 target_set.o: target_set.cpp target_set.hpp

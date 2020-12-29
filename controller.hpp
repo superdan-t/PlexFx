@@ -7,21 +7,21 @@ namespace PlexFx {
 class Controller {
 public:
 	virtual void run() = 0;
-	virtual Effect& getEffect(PLEXFX_TYPE_FXID i) = 0;
-	virtual void removeEffect(PLEXFX_TYPE_FXID i) = 0;
+	virtual Effect& getEffect(ID i) = 0;
+	virtual void removeEffect(ID i) = 0;
 	virtual Effect& addEffect() = 0;
 	virtual ~Controller() { };
-	inline Effect& operator[](size_t id) {
+	inline Effect& operator[](ID id) {
 		return getEffect(id);
 	}
 };
 
 class LinkedController : public Controller {
 public:
-	void run() override;	// O(n)
-	Effect& getEffect(PLEXFX_TYPE_FXID i) override;	// O(n)
-	void removeEffect(PLEXFX_TYPE_FXID i) override;	// O(n)
-	Effect& addEffect() override;	// O(1)
+	void run() override;
+	Effect& getEffect(ID i) override;
+	void removeEffect(ID i) override;
+	Effect& addEffect() override;
 	~LinkedController();
 private:
 	class Node {

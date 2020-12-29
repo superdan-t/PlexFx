@@ -1,17 +1,13 @@
 #include "set.hpp"
 
-namespace PlexFx {
+PlexFx::Set::Iterator::Iterator(Set& set, Index init) : set(set), i(init) { }
 
-Set::Iterator::Iterator(Set& set, PLEXFX_TYPE_BOUND init) : set(set), i(init) { }
-
-PLEXFX_TYPE_BOUND Range::at(PLEXFX_TYPE_BOUND i) {
+PlexFx::Index PlexFx::Range::at(Index i) {
 	return start + i;
 }
 
-PLEXFX_TYPE_BOUND Range::size() {
+PlexFx::Index PlexFx::Range::size() {
 	return end - start;
 }
 
-Range::Range(PLEXFX_TYPE_BOUND start, PLEXFX_TYPE_BOUND end) : start(start), end(end) { }
-
-}	// end namespace PlexFx
+PlexFx::Range::Range(Index start, Index end) : start(start), end(end) { }
